@@ -1,9 +1,8 @@
-var parseDecrypted = require('thumbor-url').parseDecrypted;
 var Sharp = require('sharp');
+var assert = require('assert');
 
-module.exports = function(url) {
+module.exports = function(object) {
   var image = Sharp();
-  var object = parseDecrypted(url);
 
   if (object && isNumbers(object.crop)) {
     image = image.extract(

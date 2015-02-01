@@ -3,7 +3,7 @@ var objectToImage = require('./');
 var Sharp = require('sharp');
 var parseDecrypted = require('thumbor-url').parseDecrypted;
 var toImage = function(url) {
-  return objectToImage(parseDecrypted(url));
+  return objectToImage(parseDecrypted(url + 'http://example.com/image.jpg'));
 };
 
 test('empty string', function(t) {
