@@ -49,7 +49,6 @@ test('filters not supported', function(t) {
     'max_bytes',
     'noise',
     'no_upscale',
-    'quality',
     'rgb',
     'round_corner',
     'rotate',
@@ -68,5 +67,10 @@ test('filters not supported', function(t) {
       toImage('/filters:' + filter + '()/');
     });
   });
+  t.end();
+});
+
+test('supported filters', function(t) {
+  t.equal(toImage('/filters:quality(30)/').options.quality, 30);
   t.end();
 });

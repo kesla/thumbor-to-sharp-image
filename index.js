@@ -1,15 +1,25 @@
 var Sharp = require('sharp');
 var assert = require('assert');
-var supportedFilters = [];
+var filterMethods = {
+  quality: function(image, args) {
+    image.quality.call(image, parseInt(args[0], 10));
+  }
+};
 
 module.exports = function(options) {
   assert(options, 'options object is required');
   assert(!options.trim.orientation, 'trim is not supported');
-  (options.filters || []).forEach(function(filter) {
-    assert(supportedFilters.indexOf(filter.name) !== -1, filter.name + ' is not a supported filter');
+  var filters = options.filters || [];
+
+  filters.forEach(function(filter) {
+    assert(filterMethods[filter.name], filter.name + ' is not a supported filter');
   });
 
   var image = Sharp();
+
+  filters.forEach(function(filter) {
+    filterMethods[filter.name](image, filter.args);
+  });
 
   if (isNumbers(options.crop)) {
     image = image.extract(
