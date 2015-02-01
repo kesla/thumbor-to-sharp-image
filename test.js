@@ -1,6 +1,10 @@
 var test = require('tape');
-var toImage = require('./');
+var objectToImage = require('./');
 var Sharp = require('sharp');
+var parseDecrypted = require('thumbor-url').parseDecrypted;
+var toImage = function(url) {
+  return objectToImage(parseDecrypted(url));
+};
 
 test('empty string', function(t) {
   t.ok(toImage(''));

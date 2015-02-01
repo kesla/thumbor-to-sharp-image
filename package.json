@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/kesla/thumbor-to-sharp-image",
   "devDependencies": {
-    "tape": "^3.5.0"
+    "tape": "^3.5.0",
+    "thumbor-url": "^0.3.0"
   },
   "dependencies": {
-    "sharp": "^0.9.1",
-    "thumbor-url": "^0.3.0"
+    "sharp": "^0.9.1"
   }
 }
