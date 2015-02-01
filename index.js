@@ -3,6 +3,7 @@ var assert = require('assert');
 
 module.exports = function(options) {
   assert(options, 'options object is required');
+  assert(!options.trim.orientation, 'trim is not supported');
 
   var image = Sharp();
 

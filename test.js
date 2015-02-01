@@ -29,3 +29,10 @@ test('crop/extract', function(t) {
   t.equal(image.options.heightPre, 200);
   t.end();
 });
+
+test('trim', function(t) {
+  t.throws(function() {
+    toImage('/trim/');
+  });
+  t.end();
+});
