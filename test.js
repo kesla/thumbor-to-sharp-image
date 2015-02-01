@@ -36,3 +36,37 @@ test('trim', function(t) {
   });
   t.end();
 });
+
+test('filters not supported', function(t) {
+  var filters = [
+    'brightness',
+    'contrast',
+    'colorize',
+    'equalize',
+    'fill',
+    'format',
+    'grayscale',
+    'max_bytes',
+    'noise',
+    'no_upscale',
+    'quality',
+    'rgb',
+    'round_corner',
+    'rotate',
+    'saturation',
+    'sharpen',
+    'strip_icc',
+    'watermark',
+    'convolution',
+    'blur',
+    'extract_focal',
+    'gifv'
+  ];
+
+  filters.forEach(function(filter) {
+    t.throws(function() {
+      toImage('/filters:' + filter + '()/');
+    });
+  });
+  t.end();
+});
