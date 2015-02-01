@@ -1,7 +1,7 @@
 var parseDecrypted = require('thumbor-url').parseDecrypted;
 var Sharp = require('sharp');
 
-module.exports = function (url) {
+module.exports = function(url) {
   var image = Sharp();
   var object = parseDecrypted(url);
 
@@ -15,7 +15,7 @@ module.exports = function (url) {
   }
 
   return image;
-}
+};
 
 function isNumbers(object) {
   return Object.keys(object).every(function(key) {
