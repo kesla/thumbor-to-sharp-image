@@ -1,15 +1,17 @@
 var Sharp = require('sharp');
 var assert = require('assert');
 
-module.exports = function(object) {
+module.exports = function(options) {
+  assert(options, 'options object is required');
+
   var image = Sharp();
 
-  if (object && isNumbers(object.crop)) {
+  if (options && isNumbers(options.crop)) {
     image = image.extract(
-      object.crop.top,
-      object.crop.left,
-      (object.crop.right - object.crop.left),
-      (object.crop.bottom - object.crop.top)
+      options.crop.top,
+      options.crop.left,
+      (options.crop.right - options.crop.left),
+      (options.crop.bottom - options.crop.top)
     );
   }
 

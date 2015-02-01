@@ -6,6 +6,13 @@ var toImage = function(url) {
   return objectToImage(parseDecrypted(url + 'http://example.com/image.jpg'));
 };
 
+test('no options', function(t) {
+  t.throws(function() {
+    objectToImage();
+  });
+  t.end();
+});
+
 test('empty string', function(t) {
   t.ok(toImage(''));
   t.ok(toImage('') instanceof Sharp);
