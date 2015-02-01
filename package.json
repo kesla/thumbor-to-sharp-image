@@ -1,6 +1,6 @@
 {
   "name": "thumbor-to-sharp-image",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Given a thumbor object (from npmjs.com/package/thumbor-url), returns a sharp (npmjs.com/package/sharp) image object",
   "main": "index.js",
   "scripts": {
