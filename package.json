@@ -4,7 +4,7 @@
   "description": "Given a thumbor object (from npmjs.com/package/thumbor-url), returns a sharp (npmjs.com/package/sharp) image object",
   "main": "index.js",
   "scripts": {
-    "test": "tape tests.js"
+    "test": "tape test.js"
   },
   "repository": {
     "type": "git",
