@@ -30,6 +30,10 @@ module.exports = function(options) {
     );
   }
 
+  if (typeof options.width === 'number' && typeof options.height === 'number') {
+    image = image.resize(options.width, options.height);
+  }
+  
   return image;
 };
 

@@ -37,6 +37,14 @@ test('trim', function(t) {
   t.end();
 });
 
+test('width & height', function(t) {
+  var image = toImage('/10x20/');
+
+  t.equal(image.options.width, 10);
+  t.equal(image.options.height, 20);
+  t.end();
+});
+
 test('filters not supported', function(t) {
   var filters = [
     'brightness',
