@@ -21,7 +21,10 @@ test('empty string', function(t) {
 });
 
 test('crop/extract', function(t) {
-  var image = toImage('/10x20:110x220/');
+  var parsed = parse('/10x20:110x220/http://example.com/image.jpg');
+  // this is a real use case
+  parsed.crop.method = 'faces';
+  var image = objectToImage(parsed);
 
   t.equal(image.options.leftOffsetPre, 10);
   t.equal(image.options.topOffsetPre, 20);

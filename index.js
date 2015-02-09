@@ -21,7 +21,7 @@ module.exports = function(options) {
     filterMethods[filter.name](image, filter.args);
   });
 
-  if (isNumbers(options.crop)) {
+  if (areNumbers(options.crop, ['top', 'left', 'right', 'bottom'])) {
     image = image.extract(
       options.crop.top,
       options.crop.left,
@@ -37,8 +37,8 @@ module.exports = function(options) {
   return image;
 };
 
-function isNumbers(object) {
-  return Object.keys(object).every(function(key) {
+function areNumbers(object, keys) {
+  return keys.every(function(key) {
     return typeof object[key] === 'number';
   });
 }
